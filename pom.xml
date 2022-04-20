@@ -9,16 +9,16 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <serenity.version>2.4.51</serenity.version>
         <serenity.maven.version>2.4.51</serenity.maven.version>
         <serenity.cucumber.version>2.4.51</serenity.cucumber.version>
         <logback.version>1.2.3</logback.version>
         <encoding>UTF-8</encoding>
+        <tags></tags>
         <parallel.tests>4</parallel.tests>
-         </properties>
+        <webdriver.base.url></webdriver.base.url>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>ch.qos.logback</groupId>
@@ -96,6 +96,7 @@
             <artifactId>groovy-xml</artifactId>
             <version>3.0.6</version>
         </dependency>
+
         <!-- General test libraries -->
         <dependency>
             <groupId>junit</groupId>
@@ -116,6 +117,7 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -131,11 +133,14 @@
                 <version>3.0.0-M5</version>
                 <configuration>
                     <includes>
-                        <include>/*Test.java</include>
-                        <include>/Test*.java</include>
-                        <include>/*TestSuite.java</include>
-                        <include>/When*.java</include>
+                        <include>**/*Test.java</include>
+                        <include>**/Test*.java</include>
+                        <include>**/*TestSuite.java</include>
+                        <include>**/When*.java</include>
                     </includes>
+                    <systemPropertyVariables>
+                        <webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
+                    </systemPropertyVariables>
                     <parallel>classes</parallel>
                     <threadCount>${parallel.tests}</threadCount>
                     <forkCount>${parallel.tests}</forkCount>
@@ -162,6 +167,9 @@
                 <groupId>net.serenity-bdd.maven.plugins</groupId>
                 <artifactId>serenity-maven-plugin</artifactId>
                 <version>${serenity.maven.version}</version>
+                <configuration>
+                    <tags>${tags}</tags>
+                </configuration>
                 <executions>
                     <execution>
                         <id>serenity-reports</id>

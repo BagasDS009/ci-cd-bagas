@@ -7,7 +7,7 @@ import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 import static org.hamcrest.Matchers.equalTo;
 
 public class GetUser {
-    protected static String url = "https://request.in/api/";
+    protected static String url = "https://reqres.in/api/";
 
     @Step("I set GET api endpoints")
     public String setApiEndpoint(){
