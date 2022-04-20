@@ -23,7 +23,7 @@ jobs:
         run: mvn clean verify
   Test:
     name: Naruto
-    needs: Build
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Test Api
