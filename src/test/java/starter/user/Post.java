@@ -21,7 +21,7 @@ public class Post {
         requestBody.put("name","morpheus");
         requestBody.put("job", "leader");
 
-        SerenityRest.given().header("Content-Type", "application/json").body(setPostApiEndpoint());
+        SerenityRest.given().header("Content-Type", "application/json").body(requestBody.toJSONString()).post(setPostApiEndpoint());
     }
     @Step("I receive valid HTTP response code 201")
     public void validHttpResponseCode201(){

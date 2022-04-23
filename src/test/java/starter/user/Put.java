@@ -21,7 +21,7 @@ public class Put {
         requestBody.put("name","morpheus");
         requestBody.put("job", "zion resident");
 
-        SerenityRest.given().header("Content-Type", "application/json").body(setPutApiEndpoint());
+        SerenityRest.given().header("Content-Type", "application/json").body(requestBody.toJSONString()).put(setPutApiEndpoint());
     }
     @Step("I receive valid data for user")
     public void IReceiveValidDataForUser() {
