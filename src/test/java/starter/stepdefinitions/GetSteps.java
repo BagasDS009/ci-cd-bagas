@@ -5,11 +5,11 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
-import starter.user.GetUser;
+import starter.user.GetSingleUser;
 
-public class UserSteps {
+public class GetSteps {
     @Steps
-    GetUser getUser;
+    GetSingleUser getUser;
 
     @Given("I set GET api endpoints")
     public void setGetApiEndpoints(){

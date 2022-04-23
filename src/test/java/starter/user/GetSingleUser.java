@@ -6,7 +6,7 @@ import net.thucydides.core.annotations.Step;
 import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 import static org.hamcrest.Matchers.equalTo;
 
-public class GetUser {
+public class GetSingleUser {
     protected static String url = "https://reqres.in/api/";
 
     @Step("I set GET api endpoints")

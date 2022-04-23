@@ -22,7 +22,7 @@ jobs:
       - name: Test Api
         run: mvn clean verify
   Test:
-    name: Naruto
+    name: Naruto in branch
     needs: build
     runs-on: ubuntu-latest
     steps:
